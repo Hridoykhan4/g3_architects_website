@@ -2,11 +2,13 @@
 
 * {
   font-family: "Work Sans", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 header {
   background-color: rgba(255, 144, 14, 0.1);
-  padding: 50px 230px;
+  padding: 1rem 6rem;
 }
 
 nav {
@@ -39,6 +41,11 @@ nav li a {
 
 
 /* banner styles */
+
+.banner{
+  margin-top: 1.3rem;
+}
+
 .banner-content{
 max-width: 800px;
 margin: 0 auto;
@@ -49,12 +56,14 @@ text-align: center;
   color: rgb(19, 19, 19);
 font-size: 4rem;
 font-weight: 700;
+margin-bottom: 0.8rem;
 }
 
 .banner-description{
   color: rgb(114, 114, 114);
   font-size: 1rem;
   font-weight: 400;
+  margin-bottom: 1rem;
 }
 
 .btn-primary{
@@ -68,8 +77,9 @@ font-weight: 700;
 }
 
 .banner img{
-  margin-top: 20px;
-  width: 100%;
+  max-width: 80%;
+  margin: 1.6rem auto;
+  display: block;
 }
 
 
@@ -209,30 +219,69 @@ margin: 0 auto;
   padding: 10px 10px;
 }
 
+.checkbtn{
+  display: none;
+  font-size: 2rem;
+}
 
-
-
-
+#check{
+  display: none;
+}
 
 
 
 
 /* Responsive media Queries */
 /* Mobile Devices */
-@media screen and (max-width: 576px) 
+@media screen and (max-width: 576px) {
 
-{
+
+  .banner img{
+    max-width: 100%;
+  }
+
+  .banner-title{
+    font-size:1.6rem;
+  }
+  
+
+
   header{
-    padding: 20px;
+    padding: 1rem;
   }
 
 
-  *{
-    padding: 0;
-
+  nav ul{
+  left: -200%;
+position: fixed;
+width: 100%;
+z-index: 1;
+top: 5.1rem;
+background-color: rgba(0, 0, 0, 0.6);
+backdrop-filter: blur(4px) brightness(0.9); 
+flex-direction: column;
+transition:  0.6s ease-in-out;
   }
 
-  nav,.teams-container,.facts-card-container,.sponsor-img-container,.features{
+  nav ul li{
+    margin: 1rem;
+  }
+
+  nav ul li a{
+    color: white;
+  }
+
+  #check:checked ~ ul {
+    left: 0;
+  }
+  .checkbtn{
+    display: block;
+  }
+
+
+
+
+.teams-container,.facts-card-container,.sponsor-img-container,.features{
     flex-direction: column;
   }
 
@@ -261,12 +310,36 @@ margin: 0 auto;
 }
 
 
-
-
-
 /* Medium devices */
 @media screen and (min-width:576px) and (max-width:992px) {
-    nav,.teams-container,.facts-card-container,.sponsor-img-container,.features{
+    
+  .checkbtn{
+    display: block;
+  }
+  
+  nav ul{
+    left: -200%;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 5.2rem;
+    backdrop-filter: blur(4px) brightness(0.9); 
+flex-direction: column;
+transition:  0.6s ease-in-out;
+  }
+  nav ul li{
+    margin: 1rem;
+  }
+
+  nav ul li a{
+    color: white;
+  }
+  
+  #check:checked ~ ul{
+    left: 0;
+  }
+  
+  .teams-container,.facts-card-container,.sponsor-img-container,.features{
       flex-direction: column;
     }  
     header{
